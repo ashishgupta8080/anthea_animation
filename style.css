@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+}
+
+h3,
+h2 {
+    margin: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.section1 {
+    background: blue;
+    width: 100%;
+    height: 900px;
+}
+
+.section3 {
+    background: yellow;
+    width: 100%;
+    height: 900px;
+}
+
+.section2-parent {
+    position: relative;
+    height: 100%;
+    background: transparent;
+}
+
+.section2 {
+    background: linear-gradient(180deg, #000428 0%, #250048 55.21%, #0C0040 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.welcome-txt {
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.head-text {
+    font-weight: 400;
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    font-size: 64px;
+}
+
+.body-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+.anthea-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: relative;
+    margin: 10% 0;
+    z-index: 2;
+}
+
+.left {
+    position: relative;
+    left: 87px;
+    z-index: 1;
+
+}
+
+.right {
+    position: relative;
+    right: 86px;
+    z-index: 1;
+}
+
+.anthea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.anthea1 {
+    position: relative;
+    top: -100px;
+    z-index: 0;
+}
+
+.anthea2 {
+    position: relative;
+    bottom: 122px;
+}
+
+.left {
+    position: relative;
+}
+
+.card {
+    background: linear-gradient(223.76deg, rgba(86, 26, 183, 0.2) 0.84%, rgba(93, 75, 133, 0.2) 98.52%);
+    border: 1px solid transparent;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+/* card1 */
+.card1 {
+    width: 200px;
+    height: 110px;
+    position: absolute;
+    top: 25%;
+    left: 22%;
+}
+
+.card1-heading {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.card1-body {
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.mgdL1 {
+    font-size: 13px;
+    font-weight: 275;
+}
+
+.high1 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #EF6969;
+}
+
+/* card2 */
+.card2 {
+    width: 120px;
+    height: 67px;
+    position: absolute;
+    bottom: 54%;
+    left: 33%;
+}
+
+.card2-heading {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.card2-body {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.mgdL2 {
+    font-size: 8px;
+    font-weight: 275;
+}
+
+.high2 {
+    font-size: 8px;
+    font-weight: 400;
+    color: #EF6969;
+}
+
+/* card3 */
+.card3 {
+    width: 280px;
+    height: 158px;
+    position: absolute;
+    bottom: 40%;
+    left: 18%;
+}
+
+.card3-heading {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.card3-body {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.mgdL3 {
+    font-size: 18px;
+    font-weight: 275;
+}
+
+.high3 {
+    font-size: 19px;
+    font-weight: 400;
+    color: #EDD972;
+}
+
+/* card4 */
+.card4 {
+    width: 140px;
+    height: 78px;
+    position: absolute;
+    top: 32%;
+    right: 24%;
+}
+
+.card4-heading {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.card4-body {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.mgdL4 {
+    font-size: 9px;
+    font-weight: 275;
+}
+
+.high4 {
+    font-size: 9px;
+    font-weight: 400;
+    color: #4AE7AE;
+}
+
+/* card5 */
+.card5 {
+    width: 200px;
+    height: 111px;
+    position: absolute;
+    top: 42%;
+    right: 18%;
+}
+
+.card5-heading {
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.high5 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #4AE7AE;
+}
+
+/* card6*/
+.card6 {
+    width: 120px;
+    height: 66px;
+    position: absolute;
+    bottom: 46%;
+    right: 40%;
+}
+
+.card6-heading {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.card6-body {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.mgdL6 {
+    font-size: 8px;
+    font-weight: 275;
+}
+
+.high6 {
+    font-size: 8px;
+    font-weight: 400;
+    color: #EF6969;
+}
+
+.mobile-svg {
+    position: relative;
+    bottom: 735px;
+    left: 40%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0);
+    /* or scale(0.6) if you prefer a different initial scale */
+    transition: none;
+}
+
+/* .mobile-svg img{
+    height: 429px;
+    width: 200px;
+} */
+
+@media (min-width: 320px) and (max-width: 425px){
+    .head-text{
+        font-size: 30px;
+    }
+    .body-text{
+        font-size: 10px;
+    }
+    .anthea{
+        width: 270px;
+        height: 130px;
+    }
+}

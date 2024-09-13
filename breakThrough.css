@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+}
+
+h3,
+h2,
+h4,
+h5 {
+    margin: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.section1 {
+    background: blue;
+    width: 100%;
+    height: 900px;
+}
+
+.section3 {
+    background: yellow;
+    width: 100%;
+    height: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+.section2 {
+    position: relative;
+    height: 100%;
+    /* background: transparent; */
+    background: linear-gradient(180deg, #000000 48.5%, #2D2D2D 100%);
+    width: 100%;
+}
+
+
+.breakThrough-txt {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    text-wrap: nowrap;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.breakThrough-txt-heading {
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.breakThrough-txt-body {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.eyva-img {
+    width: 100%;
+    position: relative;
+    bottom: -750px;
+    z-index: 0;
+}
+
+.break-through-content {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 30px;
+}
+
+.breakThrough-txt-heading {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 64px;
+
+}
+
+.cards-flex {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-container {
+    margin: 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000066;
+    padding: 5px;
+}
+
+.card-flex1-heading {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+.card {
+    width: 390px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-heading {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.card-body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #9D9D9D;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .section2,
+    .section1,
+    .section3 {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 45px;
+        text-wrap: nowrap;
+    }
+
+    .breakThrough-txt {
+        top: 30%;
+    }
+
+    .eyva-img {
+        bottom: -738px;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 40px;
+    }
+
+    .cards-flex {
+        gap: 0px;
+    }
+
+    .card-flex1-heading {
+        font-size: 18px;
+    }
+
+    .card {
+        max-width: 230px;
+        max-height: 95px;
+    }
+
+    .card-svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .card-heading {
+        font-size: 15px;
+    }
+
+    .card-body {
+        font-size: 12px;
+    }
+
+    .break-through-content {
+        bottom: -30px;
+    }
+}
+
+@media (width: 768px) {
+
+    .section2,
+    .section1,
+    .section3 {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 20px;
+    }
+
+    .breakThrough-txt {
+        top: 30%;
+    }
+
+    .eyva-img {
+        bottom: -768px;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 30px;
+        text-wrap: nowrap;
+    }
+
+    .breakThrough-txt-body {
+        font-size: 15px;
+    }
+
+    .cards-flex {
+        gap: 0px;
+    }
+
+    .card-flex1-heading {
+        font-size: 20px;
+    }
+
+    .card {
+        max-width: 215px;
+        max-height: 100px;
+    }
+
+    .card-svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-heading {
+        font-size: 15px;
+    }
+
+    .card-body {
+        font-size: 10px;
+    }
+
+    .break-through-content {
+        bottom: -10px;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 767px) {
+
+    .section2,
+    .section1,
+    .section3 {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .breakThrough-txt {
+        top: 13%;
+        left: 50%
+    }
+
+    .eyva-img {
+        bottom: -710px !important;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 30px;
+        text-wrap: nowrap;
+    }
+
+    .breakThrough-txt-body {
+        font-size: 13px;
+    }
+
+    .cards-flex {
+        gap: 0px;
+        flex-direction: column;
+    }
+
+    .cards-flex1 {
+        padding-bottom: 15px;
+    }
+
+    .card-flex1-heading {
+        font-size: 16px;
+        text-align: center;
+        padding-left: 0px;
+        padding-bottom: 5px;
+    }
+
+    .card-container {
+        margin: 5px;
+    }
+
+    .card {
+        width: 55vw;
+        max-height: 70px;
+        padding: 0 5px;
+    }
+
+    .card-svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-heading {
+        font-size: 13px;
+    }
+
+    .card-body {
+        font-size: 10px;
+    }
+
+    .break-through-content {
+        bottom: 3% !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+
+    .section2,
+    .section1,
+    .section3 {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .breakThrough-txt {
+        top: 15%;
+        left: 50%
+    }
+
+    .eyva-img {
+        bottom: -710px !important;
+    }
+
+    .breakThrough-txt-heading {
+        font-size: 20px;
+        text-wrap: nowrap;
+    }
+
+    .breakThrough-txt-body {
+        font-size: 8px;
+    }
+
+    .cards-flex {
+        gap: 0px;
+        flex-direction: column;
+    }
+
+    .cards-flex1 {
+        padding-bottom: 20px;
+    }
+
+    .card-flex1-heading {
+        font-size: 16px;
+        text-align: center;
+        padding-left: 0px;
+        padding-bottom: 5px;
+    }
+
+    .card-container {
+        margin: 5px;
+    }
+
+    .card {
+        width: 60vw;
+        max-height: 70px;
+        padding: 0 5px;
+    }
+
+    .card-svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-heading {
+        font-size: 13px;
+    }
+
+    .card-body {
+        font-size: 10px;
+    }
+
+    .break-through-content {
+        bottom: -8% !important;
+    }
+}
