@@ -1,5 +1,13 @@
 gsap.registerPlugin(ScrollTrigger);
 
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
 function createAnimations() {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
@@ -11,22 +19,6 @@ function createAnimations() {
             scrub: 1,
             pin: true,
             anticipatePin: 1,
-            onEnter: () => {
-                // Hide the scrollbar
-                document.body.classList.add('hide-scrollbar');
-            },
-            onLeave: () => {
-                // Show the scrollbar
-                document.body.classList.remove('hide-scrollbar');
-            },
-            onEnterBack: () => {
-                // Hide the scrollbar when scrolling back in
-                document.body.classList.add('hide-scrollbar');
-            },
-            onLeaveBack: () => {
-                // Show the scrollbar when scrolling back out
-                document.body.classList.remove('hide-scrollbar');
-            }
         }
     });
 
@@ -120,8 +112,8 @@ function createAnimations() {
                 ease: "power2.out",
             }, "-=1.5");
     }
+
+    ScrollTrigger.refresh();
 }
-
 createAnimations();
-
-window.addEventListener('resize', createAnimations);
+window.addEventListener('resize', debounce(createAnimations, 200));
