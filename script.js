@@ -12,7 +12,7 @@ gsap.to(".section2", {
         scrub: 1,
         pin: true,
         anticipatePin: 1,
-        markers: false
+        // markers: true
     }
 });
 
@@ -36,7 +36,7 @@ gsap.to(".right", {
         trigger: ".right",
         start: "top 50%",
         end: "top 20%",
-        toggleActions: "restart pause resume none",
+        toggleActions: "restart pause resume reset",
         scrub: true,
         // markers: true
     }
@@ -127,84 +127,71 @@ mobileTimeline
     });
 
 
-const finalCardTimeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".cards-container",
-        start: "top 10%",
-        end: "top 0%",
-        scrub: true,
-        // markers: true
-    }
-});
-
-finalCardTimeline
-.add(() => {
-    gsap.set(".card", {
-        display: "block",
-        position: "absolute",
-        width: "155px",
-        height: "90px",
-        display: "flex",
-        background: "linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))"
+    const finalCardTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".cards-container",
+            start: "top 10%",
+            end: "top 0%",
+            scrub: true,
+            // markers: true
+        }
     });
-
-    gsap.set(".card-heading", { fontSize: "12px" });
-    gsap.set(".card-body", { fontSize: "14px" });
-    gsap.set(".mgdL", { fontSize: "9px" });
-    gsap.set(".high", { fontSize: "9px" });
-})
-    .to(".card1", {
-        x: "221%",
-        y: "47%",
-        duration: 3,
-        stagger: 0.1,
-        ease: "power2.out"
-    })
-    .to(".card2", {
-        x: "88%",
-        y: "-177%",
-        // width: "150px", 
-        // height: "100px", 
-        duration: 3,
-        stagger: 0.1,
-        ease: "power2.out"
-    })
-    .to(".card3", {
-        x: "271%",
-        y: "-358%",
-        // width: "150px", 
-        // height: "100px", 
-        fontSize: "20px",
-        duration: 3,
-        stagger: 0.1,
-        ease: "power2.out"
-    })
-    .to(".card4", {
-        x: "-209%",
-        y: "-98%",
-        // width: "150px",
-        // height: "100px", 
-        duration: 3,
-        // stagger: 0.1, 
-        ease: "power2.out"
-    })
-    .to(".card5", {
-        x: "-280%",
-        y: "-197%",
-        // width: "150px", 
-        // height: "100px",
-        duration: 3,
-        // stagger: 0.1,
-        ease: "power2.out"
-    })
-    .to(".card6", {
-        x: "-16%",
-        y: "-239%",
-        // width: "150px", 
-        // height: "100px", 
-        duration: 3,
-        // stagger: 0.1, 
-        ease: "power2.out"
+    
+    // Initial setup for card positions
+    finalCardTimeline.add(() => {
+        gsap.set(".card", {
+            display: "block",
+            position: "absolute",
+            width: "155px",
+            height: "90px",
+            display: "flex",
+            background: "linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))"
+        });
+    
+        // Set card styles
+        gsap.set(".card-img",{width:"32px",height:"32px"})
+        gsap.set(".card-heading", { fontSize: "12px" });
+        gsap.set(".card-body", { fontSize: "14px" });
+        gsap.set(".mgdl", { fontSize: "9px" });
+        gsap.set(".high", { fontSize: "9px" });
     });
-
-
+    
+    // Define animations for cards
+    finalCardTimeline
+        .to(".card1", {
+            x: "221%",
+            y: "47%",
+            duration: 3,
+            ease: "power2.out"
+        })
+        .to(".card2", {
+            x: "88%",
+            y: "-177%",
+            duration: 3,
+            ease: "power2.out"
+        })
+        .to(".card3", {
+            x: "271%",
+            y: "-358%",
+            duration: 3,
+            ease: "power2.out"
+        })
+        .to(".card4", {
+            x: "-209%",
+            y: "-98%",
+            duration: 3,
+            ease: "power2.out"
+        })
+        .to(".card5", {
+            x: "-280%",
+            y: "-197%",
+            duration: 3,
+            ease: "power2.out"
+        })
+        .to(".card6", {
+            x: "-16%",
+            y: "-239%",
+            duration: 3,
+            ease: "power2.out"
+        });
+    

@@ -16,104 +16,37 @@ function createAnimations() {
             trigger: ".section2-parent",
             start: "top top",
             end: "bottom top",
-            scrub: 1,
+            toggleActions: "restart pause resume none",
+            // scrub: true, 
             pin: true,
             anticipatePin: 1,
+            markers: false, 
+            invalidateOnRefresh: true
         }
     });
 
-    const viewportWidth = window.innerWidth;
+    const mm = gsap.matchMedia();
 
-    if (viewportWidth == 768) {
-        tl.to(".eyva-img", {
-            y: -700,
-            scale: 0.8,
-            ease: "power2.out",
-            duration: 3,
-        });
+    mm.add("(max-width: 425px)", () => {
+        tl.to(".eyva-img", { y: -650, scale: 0.9, duration: 3 }) 
+          .to(".breakThrough-txt", { opacity: 0, duration: 1.5 })
+          .fromTo(".break-through-content", { opacity: 0, y: 0 }, { opacity: 1, y: 0, duration: 1 });
+    });
 
-        tl.to(".breakThrough-txt", {
-            opacity: 0,
-            duration: 1.5,
-        }, "-=1");
+    mm.add("(min-width: 426px) and (max-width: 767px)", () => {
+        tl.to(".eyva-img", { y: -700, scale: 0.9, duration: 3 }) 
+          .to(".breakThrough-txt", { opacity: 0, duration: 1.5 }, "-=1.2")
+          .fromTo(".break-through-content", { opacity: 0, y: 0 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=1.2");
+    });
 
-        tl.fromTo(".break-through-content",
-            { opacity: 0, y: 50 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 3,
-                ease: "power2.out",
-            }, "-=1");
-    }
-    else if (viewportWidth >= 320 && viewportWidth <= 425) {
-        tl.to(".eyva-img", {
-            y: -650,
-            scale: 0.9,
-            ease: "power2.out",
-            duration: 5,
-        });
-
-        tl.to(".breakThrough-txt", {
-            opacity: 0,
-            duration: 1.8,
-        }, "-=1.2");
-
-        tl.fromTo(".break-through-content",
-            { opacity: 0, y: 0 },
-            {
-                opacity: 1,
-                y: -0,
-                duration: 1,
-                ease: "power2.out",
-            }, "-=1.2");
-    }
-    else if (viewportWidth >= 426 && viewportWidth <= 767) {
-        tl.to(".eyva-img", {
-            y: -700,
-            scale: 0.9,
-            ease: "power2.out",
-            duration: 5,
-        });
-
-        tl.to(".breakThrough-txt", {
-            opacity: 0,
-            duration: 1.8,
-        }, "-=1.2");
-
-        tl.fromTo(".break-through-content",
-            { opacity: 0, y: 0 },
-            {
-                opacity: 1,
-                y: -0,
-                duration: 1,
-                ease: "power2.out",
-            }, "-=1.2");
-    }
-    else {
-        tl.to(".eyva-img", {
-            y: -650,
-            scale: 0.7,
-            ease: "power2.out",
-            duration: 4,
-        });
-
-        tl.to(".breakThrough-txt", {
-            opacity: 0,
-            duration: 2,
-        }, "-=1.5");
-
-        tl.fromTo(".break-through-content",
-            { opacity: 0, y: 65 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 5,
-                ease: "power2.out",
-            }, "-=1.5");
-    }
+    mm.add("(min-width: 768px)", () => {
+        tl.to(".eyva-img", { y: -700, scale: 0.8, duration: 2 }) 
+          .to(".breakThrough-txt", { opacity: 0, duration: 1 }, "-=1")
+          .fromTo(".break-through-content", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 2, ease: "power2.out" }, "-=1");
+    });
 
     ScrollTrigger.refresh();
 }
+
 createAnimations();
-window.addEventListener('resize', debounce(createAnimations, 200));
+window.addEventListener('resize', debounce(createAnimations, 200)); 
