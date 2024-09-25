@@ -332,7 +332,7 @@ h5 {
     .section1,
     .section3 {
         width: 100%;
-        height: 100vh;
+        height: 110vh;
     }
 
     .breakThrough-txt {
@@ -346,7 +346,6 @@ h5 {
 
     .breakThrough-txt-heading {
         font-size: 20px;
-        text-wrap: nowrap;
     }
 
     .breakThrough-txt-body {
@@ -356,27 +355,29 @@ h5 {
     .cards-flex {
         gap: 0px;
         flex-direction: column;
+        align-items: center;
     }
 
     .cards-flex1 {
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 
     .card-flex1-heading {
         font-size: 16px;
         text-align: center;
         padding-left: 0px;
-        padding-bottom: 5px;
+        padding-bottom: 10px !important;
     }
 
     .card-container {
-        margin: 5px;
+        margin: 0px !important;
+        width: 50% !important;
     }
 
     .card {
-        width: 60vw;
-        max-height: 70px;
-        padding: 0 5px;
+        width: 48vw !important;
+        min-height: 60px !important;
+        padding: 0 0px;
     }
 
     .card-svg {
@@ -394,6 +395,17 @@ h5 {
 
     .break-through-content {
         bottom: -8% !important;
+    }
+
+    .head-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center;
+        width: 100% !important;
+        gap: 10px;
+    }
+    .padding-bottom{
+        padding-bottom: 10px !important;
     }
 }
 
