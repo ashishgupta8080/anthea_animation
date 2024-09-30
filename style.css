@@ -292,14 +292,11 @@ h2 {
 }
 
 .mobile-svg {
-    position: relative;
-    bottom: 735px;
-    left: 40%;
-    width: 100%;
-    height: 100%;
+    right: 8%;
+    position: absolute;
+    bottom: 4%;
     opacity: 0;
     transform: scale(0);
-    /* or scale(0.6) if you prefer a different initial scale */
     transition: none;
 }
 
@@ -308,15 +305,76 @@ h2 {
     width: 200px;
 } */
 
-@media (min-width: 320px) and (max-width: 425px){
-    .head-text{
-        font-size: 30px;
+@media (min-width: 320px) and (max-width: 425px) {
+    .head-text {
+        font-size: 46px;
     }
-    .body-text{
-        font-size: 10px;
+
+    .body-text {
+        font-size: 16px;
     }
-    .anthea{
+
+    .anthea {
         width: 270px;
         height: 130px;
     }
+
+    .left {
+        top: 20px;
+    }
+
+    .right {
+        top: 20px;
+    }
+
+    .card {
+        border-radius: 18px !important;
+    }
+
+    .card1 {
+        width: 163px;
+        height: 91px;
+        top: 29%;
+        left: -12%;
+    }
+
+    .card2 {
+        width: 99px;
+        height: 55px;
+        bottom: 43%;
+        left: 3%;
+    }
+
+    .card3 {
+        width: 230px;
+        height: 128px;
+        bottom: 23%;
+        left: -22%;
+    }
+
+    .card4 {
+        width: 115px;
+        height: 64px;
+        top: 40%;
+        right: -4%;
+    }
+
+    .card5 {
+        width: 165px;
+        height: 91px;
+        top: 52%;
+        right: -9%;
+    }
+
+    .card6 {
+        width: 99px;
+        height: 55px;
+        bottom: 28%;
+        right: 8%;
+    }
+
+    /* .mobile-svg{
+        bottom: 103%;
+        left: 4%;
+    } */
 }
