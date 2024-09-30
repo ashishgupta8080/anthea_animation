@@ -9,13 +9,13 @@ function updateTextBasedOnWidth() {
     }
 }
 
-// Initial call to set the text when the page loads
 updateTextBasedOnWidth();
 
-// Event listener for window resize
 window.addEventListener('resize', updateTextBasedOnWidth);
 
 gsap.registerPlugin(ScrollTrigger);
+
+
 
 gsap.to(".section2", {
     backgroundPosition: "0% 100%",
@@ -30,31 +30,68 @@ gsap.to(".section2", {
     }
 });
 
-gsap.to(".left", {
-    x: -500,
-    duration: 5,
-    scrollTrigger: {
-        trigger: '.left',
-        start: "top 50%",
-        end: "top 10%",
-        toggleActions: "restart pause resume reset",
-        scrub: true,
-        // markers: true
-    }
-});
+function setAnimations() {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
 
-gsap.to(".right", {
-    x: 500,
-    duration: 5,
-    scrollTrigger: {
-        trigger: ".right",
-        start: "top 50%",
-        end: "top 10%",
-        toggleActions: "restart pause resume reset",
-        scrub: true,
-        // markers: true
+    if (mediaQuery.matches) {
+        gsap.to(".left", {
+            x: -500,
+            duration: 5,
+            scrollTrigger: {
+                trigger: '.left',
+                start: "top 50%",
+                end: "top 10%",
+                toggleActions: "restart pause resume reset",
+                scrub: true,
+                // markers: true
+            }
+        });
+
+        gsap.to(".right", {
+            x: 500,
+            duration: 5,
+            scrollTrigger: {
+                trigger: ".right",
+                start: "top 50%",
+                end: "top 10%",
+                toggleActions: "restart pause resume reset",
+                scrub: true,
+                // markers: true
+            }
+        }, "+=2");
+    } else {
+        gsap.to(".left", {
+            opacity: 0,
+            duration: 3,
+            scrollTrigger: {
+                trigger: '.left',
+                start: "top 50%",
+                end: "top 20%",
+                toggleActions: "restart pause resume reset",
+                scrub: true,
+                // markers: true
+            }
+        });
+
+        gsap.to(".right", {
+            opacity: 0,
+            duration: 3,
+            scrollTrigger: {
+                trigger: ".right",
+                start: "top 50%",
+                end: "top 20%",
+                toggleActions: "restart pause resume reset",
+                scrub: true,
+                // markers: true
+            }
+        }, "+=2");
     }
-});
+}
+
+setAnimations();
+
+window.addEventListener('resize', setAnimations);
+
 
 
 const antheaTimeline = gsap.timeline({
@@ -84,7 +121,7 @@ gsap.fromTo(".cards-container",
     { opacity: 0 },
     {
         opacity: 1,
-        duration: 2,
+        duration: 5,
         scrollTrigger: {
             trigger: ".anthea",
             start: "top 50%",
@@ -136,38 +173,75 @@ mobileTimeline
     .to(".mobile-svg", {
         opacity: 1,
         scale: 1.0,
-        duration: 1,
+        duration: 0.1,
+        ease: "power2.out"
+    });
+
+mobileTimeline
+    .set(".btn-container", { opacity: 0, scale: 0 })
+    .to(".btn-container", {
+        opacity: 1,
+        scale: 1.0,
+        duration: 0.1,
         ease: "power2.out"
     });
 
 function getResponsiveValues() {
     if (window.matchMedia("(max-width: 425px)").matches) {
         return {
-            card1: { x: "74%", y: "128%" },
-            card2: { x: "34%", y: "37%" },
-            card3: { x: "102%", y: "-70%" },
-            card4: { x: "-35%", y: "10%" },
-            card5: { x: "-47%", y: "-10%" },
-            card6: { x: "0%", y: "-15%" }
+            width: "36vw",
+            height: "10vh",
+            card1: { x: "74%", y: "90%" },
+            card2: { x: "34%", y: "-1%" },
+            card3: { x: "100%", y: "-107%" },
+            card4: { x: "-35%", y: "-29%" },
+            card5: { x: "-47%", y: "-46%" },
+            card6: { x: "-3%", y: "-53%" }
+        };
+    } else if (window.matchMedia("(max-width: 768px)").matches) {
+        return {
+            width: "20vw",
+            height: "10vh",
+            card1: { x: "174%", y: "59%" },
+            card2: { x: "114%", y: "-6%" },
+            card3: { x: "203%", y: "-93%" },
+            card4: { x: "-148%", y: "-39%" },
+            card5: { x: "-153%", y: "-57%" },
+            card6: { x: "-94%", y: "-83%" }
+        };
+    } else if (window.matchMedia("(max-width: 1024px)").matches) {
+        return {
+            width: "15vw",
+            height: "10vh",
+            card1: { x: "101%", y: "8%" },
+            card2: { x: "36%", y: "-73%" },
+            card3: { x: "108%", y: "-191%" },
+            card4: { x: "-62%", y: "-75%" },
+            card5: { x: "-167%", y: "-70%" },
+            card6: { x: "-49%", y: "-98%" }
         };
     } else if (window.matchMedia("(max-width: 1440px)").matches) {
         return {
-            card1: { x: "180%", y: "-32%" },
-            card2: { x: "78%", y: "-236%" },
-            card3: { x: "216%", y: "-402%" },
-            card4: { x: "-109%", y: "-168%" },
-            card5: { x: "-166%", y: "-256%" },
-            card6: { x: "36%", y: "-283%" }
+            width: "11vw",
+            height: "10vh",
+            card1: { x: "102%", y: "20%" },
+            card2: { x: "29%", y: "-70%" },
+            card3: { x: "91%", y: "-198%" },
+            card4: { x: "-70%", y: "-40%" },
+            card5: { x: "-161%", y: "-77%" },
+            card6: { x: "-36%", y: "-94%" }
         };
     }
     else {
         return {
-            card1: { x: "221%", y: "47%" },
-            card2: { x: "88%", y: "-177%" },
-            card3: { x: "271%", y: "-358%" },
-            card4: { x: "-209%", y: "-98%" },
-            card5: { x: "-280%", y: "-197%" },
-            card6: { x: "-16%", y: "-239%" }
+            width: "8vw",
+            height: "10vh",
+            card1: { x: "182%", y: "13%" },
+            card2: { x: "84%", y: "-55%" },
+            card3: { x: "171%", y: "-165%" },
+            card4: { x: "-128%", y: "-42%" },
+            card5: { x: "-250%", y: "-69%" },
+            card6: { x: "-78%", y: "-69%" }
         };
     }
 }
@@ -185,18 +259,16 @@ const finalCardTimeline = gsap.timeline({
     }
 });
 
-// Initial setup for card positions
 finalCardTimeline.add(() => {
     gsap.set(".card", {
         display: "block",
         position: "absolute",
-        width: "155px",
-        height: "90px",
+        width: responsiveValues.width,
+        height: responsiveValues.height,
         display: "flex",
         background: "linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))"
     });
 
-    // Set card styles
     gsap.set(".card-img", { width: "32px", height: "32px" })
     gsap.set(".card-heading", { fontSize: "12px" });
     gsap.set(".card-body", { fontSize: "14px" });
@@ -204,7 +276,6 @@ finalCardTimeline.add(() => {
     gsap.set(".high", { fontSize: "9px" });
 });
 
-// Define animations for cards
 finalCardTimeline
     .to(".card1", {
         x: responsiveValues.card1.x,
@@ -243,8 +314,5 @@ finalCardTimeline
         ease: "power2.out"
     });
 
-const mm = gsap.matchMedia();
-mm.add("(max-width: 425px)", () => {
 
-})
 

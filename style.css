@@ -126,8 +126,8 @@ h2 {
     width: 200px;
     height: 110px;
     position: absolute;
-    top: 25%;
-    left: 22%;
+    top: 34%;
+    left: 27%;
 }
 
 .card1-heading {
@@ -156,8 +156,8 @@ h2 {
     width: 120px;
     height: 67px;
     position: absolute;
-    bottom: 54%;
-    left: 33%;
+    bottom: 37%;
+    left: 35%;
 }
 
 .card2-heading {
@@ -186,8 +186,8 @@ h2 {
     width: 280px;
     height: 158px;
     position: absolute;
-    bottom: 40%;
-    left: 18%;
+    bottom: 14%;
+    left: 28%;
 }
 
 .card3-heading {
@@ -216,8 +216,8 @@ h2 {
     width: 140px;
     height: 78px;
     position: absolute;
-    top: 32%;
-    right: 24%;
+    top: 40%;
+    right: 31%;
 }
 
 .card4-heading {
@@ -246,8 +246,8 @@ h2 {
     width: 200px;
     height: 111px;
     position: absolute;
-    top: 42%;
-    right: 18%;
+    top: 54%;
+    right: 21%;
 }
 
 .card5-heading {
@@ -266,8 +266,8 @@ h2 {
     width: 120px;
     height: 66px;
     position: absolute;
-    bottom: 46%;
-    right: 40%;
+    bottom: 24%;
+    right: 35%;
 }
 
 .card6-heading {
@@ -292,18 +292,32 @@ h2 {
 }
 
 .mobile-svg {
-    right: 8%;
     position: absolute;
-    bottom: 4%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
-    transform: scale(0);
-    transition: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* .mobile-svg img{
-    height: 429px;
-    width: 200px;
-} */
+.btn-container {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+.eyva-btn {
+    background:
+        linear-gradient(214.02deg, #B75CFF 6.04%, #671AE4 92.95%);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    color: #FFFFFF;
+}
 
 @media (min-width: 320px) and (max-width: 425px) {
     .head-text {
@@ -372,9 +386,144 @@ h2 {
         bottom: 28%;
         right: 8%;
     }
+}
 
-    /* .mobile-svg{
-        bottom: 103%;
-        left: 4%;
-    } */
+@media (min-width: 426px) and (max-width: 768px) {
+    .head-text {
+        font-size: 46px;
+    }
+
+    .body-text {
+        font-size: 16px;
+        text-wrap: wrap;
+    }
+
+    .anthea {
+        width: 270px;
+        height: 130px;
+    }
+
+    .left {
+        top: 20px;
+    }
+
+    .right {
+        top: 20px;
+    }
+
+    .card {
+        border-radius: 18px !important;
+    }
+
+    .card1 {
+        width: 170px;
+        height: 100px;
+        top: 29%;
+        left: -7%;
+    }
+
+    .card2 {
+        width: 105px;
+        height: 65px;
+        bottom: 43%;
+        left: 5%;
+    }
+
+    .card3 {
+        width: 260px;
+        height: 147px;
+        bottom: 23%;
+        left: -13%;
+    }
+
+    .card4 {
+        width: 115px;
+        height: 70px;
+        top: 39%;
+        right: -1%;
+    }
+
+    .card5 {
+        width: 165px;
+        height: 100px;
+        top: 52%;
+        right: -2%;
+    }
+
+    .card6 {
+        width: 99px;
+        height: 60px;
+        bottom: 24%;
+        right: 10%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .head-text {
+        font-size: 46px;
+    }
+
+    .body-text {
+        font-size: 16px;
+        text-wrap: wrap;
+    }
+
+    .anthea {
+        width: 270px;
+        height: 130px;
+    }
+
+    .left {
+        top: 20px;
+    }
+
+    .right {
+        top: 20px;
+    }
+
+    .card {
+        border-radius: 18px !important;
+    }
+
+    .card1 {
+        width: 170px;
+        height: 100px;
+        top: 35%;
+        left: 20%;
+    }
+
+    .card2 {
+        width: 105px;
+        height: 65px;
+        bottom: 37%;
+        left: 30%;
+    }
+
+    .card3 {
+        width: 260px;
+        height: 147px;
+        bottom: 15%;
+        left: 19%;
+    }
+
+    .card4 {
+        width: 115px;
+        height: 70px;
+        top: 43%;
+        right: 24%;
+    }
+
+    .card5 {
+        width: 165px;
+        height: 100px;
+        top: 53%;
+        right: 8%;
+    }
+
+    .card6 {
+        width: 99px;
+        height: 60px;
+        bottom: 24%;
+        right: 26%;
+    }
 }
