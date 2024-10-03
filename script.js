@@ -93,8 +93,8 @@ window.addEventListener('resize', setAnimations);
 const antheaTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".right",
-        start: "top 40%",
-        end: "top 10%",
+        start: "top 20%",
+        end: "top -10%",
         toggleActions: "play none none none",
         scrub: 1,
         // markers: true
@@ -120,8 +120,8 @@ gsap.fromTo(".cards-container",
         duration: 5,
         scrollTrigger: {
             trigger: ".anthea",
-            start: "top 50%",
-            end: "top 20%",
+            start: "top 20%",
+            end: "top -10%",
             toggleActions: "play none none none",
             scrub: 1,
             // markers: true 
@@ -136,71 +136,64 @@ antheaTimeline
         ease: "power2.out"
     }, "+=0.5");
 
-gsap.fromTo(".card",
-    { opacity: 0, y: 30 },
-    {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.5,
-        scrollTrigger: {
-            trigger: ".cards-container",
-            start: "top 150%",
-            end: "top 30%",
-            toggleActions: "play none none none",
-            // markers: true 
-        }
-    }
-);
+// gsap.fromTo(".card",
+//     { opacity: 0, y: 30 },
+//     {
+//         opacity: 1,
+//         y: 0,
+//         duration: 1,
+//         stagger: 0.5,
+//         scrollTrigger: {
+//             trigger: ".cards-container",
+//             start: "top 150%",
+//             end: "top 30%",
+//             toggleActions: "play none none none",
+//             // markers: true 
+//         }
+//     }
+// );
 
 const mobileTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".cards-container",
-        start: "top 80%",
-        end: "top 40%",
-        toggleActions: "play none none none",
+        start: "top 0%",
+        end: "top -20%",
+        toggleActions: "play none none reset",
         scrub: 1,
         // markers: true
     }
 });
 
-mobileTimeline
-    .set(".mobile-svg", { opacity: 0, scale: 0 })
-    .to(".mobile-svg", {
-        opacity: 1,
-        scale: 0.9,
-        duration: 5,
-        ease: "power2.out"
-    });
+// mobileTimeline
+//     .set(".mobile-svg", { opacity: 0, scale: 1.0 })
+//     .to(".mobile-svg", {
+//         opacity: 1,
+//         scale: 1.0,
+//         duration: 2,
+//         ease: "power2.out"
+//     });
 
-mobileTimeline
-    .set(".btn-container", { opacity: 0, scale: 0 })
-    .to(".btn-container", {
-        opacity: 1,
-        scale: 1.0,
-        duration: 0.1,
-        ease: "power2.out"
-    });
+mobileTimeline.set(".btn-container", { opacity: 0, scale: 1.0 })
+    .set(".left-thumb", { opacity: 0, scale: 1.0 })
+    .set(".right-thumb", { opacity: 0, scale: 1.0 });
+
+mobileTimeline.to(".btn-container", {
+    opacity: 1,
+    scale: 1.0,
+    duration: 3,
+    ease: "power2.out"
+});
 
 if (window.innerWidth > 768) {
-    mobileTimeline.set(".left-thumb", { opacity: 0, scale: 0 })
-        .to(".left-thumb", {
-            opacity: 1,
-            scale: 1.0,
-            duration: 0.1,
-            ease: "power2.out"
-        });
-
-    mobileTimeline
-        .set(".right-thumb", { opacity: 0, scale: 0 })
-        .to(".right-thumb", {
-            opacity: 1,
-            scale: 1.0,
-            duration: 0.1,
-            ease: "power2.out"
-        });
-
+    mobileTimeline.to([".left-thumb", ".right-thumb"], {
+        opacity: 1,
+        scale: 1.0,
+        duration: 3,
+        ease: "power2.out",
+        stagger: 0
+    }, 0); 
 }
+
 
 function getResponsiveValues() {
     if (window.matchMedia("(max-width: 425px)").matches) {
@@ -264,18 +257,18 @@ function getResponsiveValues() {
 
 const responsiveValues = getResponsiveValues();
 
-
-const finalCardTimeline = gsap.timeline({
+const masterTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".cards-container",
-        start: "top 20%",
-        end: "top 0%",
-        scrub: true,
+        start: "top 30%",
+        end: "top -10%",
+        toggleActions: "play none none none",
+        scrub: 1,
         // markers: true
     }
 });
 
-finalCardTimeline.add(() => {
+masterTimeline.add(() => {
     gsap.set(".card", {
         display: "block",
         position: "absolute",
@@ -285,50 +278,42 @@ finalCardTimeline.add(() => {
         background: "linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2))"
     });
 
-    gsap.set(".card-img", { width: "32px", height: "32px" })
+    gsap.set(".card-img", { width: "32px", height: "32px" });
     gsap.set(".card-heading", { fontSize: "12px" });
     gsap.set(".card-body", { fontSize: "14px" });
     gsap.set(".mgdl", { fontSize: "9px" });
     gsap.set(".high", { fontSize: "9px" });
 });
 
-finalCardTimeline
-    .to(".card1", {
-        x: responsiveValues.card1.x,
-        y: responsiveValues.card1.y,
-        duration: 3,
+masterTimeline.set(".mobile-svg", { opacity: 0, scale: 0 });
+
+const cardDuration = 3;
+
+for (let i = 1; i <= 6; i++) {
+    masterTimeline.to(`.card${i}`, {
+        x: responsiveValues[`card${i}`].x,
+        y: responsiveValues[`card${i}`].y,
+        duration: cardDuration,
         ease: "power2.out"
-    })
-    .to(".card2", {
-        x: responsiveValues.card2.x,
-        y: responsiveValues.card2.y,
-        duration: 3,
-        ease: "power2.out"
-    })
-    .to(".card3", {
-        x: responsiveValues.card3.x,
-        y: responsiveValues.card3.y,
-        duration: 3,
-        ease: "power2.out"
-    })
-    .to(".card4", {
-        x: responsiveValues.card4.x,
-        y: responsiveValues.card4.y,
-        duration: 3,
-        ease: "power2.out"
-    })
-    .to(".card5", {
-        x: responsiveValues.card5.x,
-        y: responsiveValues.card5.y,
-        duration: 3,
-        ease: "power2.out"
-    })
-    .to(".card6", {
-        x: responsiveValues.card6.x,
-        y: responsiveValues.card6.y,
-        duration: 3,
+    }, 0);
+}
+
+const mobileSVGTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".cards-container",
+        start: "top 30%",
+        end: "top -10%",
+        toggleActions: "play none none none",
+        scrub: 1,
+        // markers: true
+    }
+});
+
+mobileSVGTimeline
+    .set(".mobile-svg", { opacity: 0, scale: 1.0 })
+    .to(".mobile-svg", {
+        opacity: 1,
+        scale: 1.0,
+        duration: 2,
         ease: "power2.out"
     });
-
-
-
