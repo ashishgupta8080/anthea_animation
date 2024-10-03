@@ -319,6 +319,31 @@ h2 {
     color: #FFFFFF;
 }
 
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-thumb {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    filter: opacity(20%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+.right-thumb {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    filter: opacity(20%);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 @media (min-width: 320px) and (max-width: 425px) {
     .head-text {
         font-size: 46px;

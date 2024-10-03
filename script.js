@@ -15,8 +15,6 @@ window.addEventListener('resize', updateTextBasedOnWidth);
 
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 gsap.to(".section2", {
     backgroundPosition: "0% 100%",
     scrollTrigger: {
@@ -40,9 +38,9 @@ function setAnimations() {
             scrollTrigger: {
                 trigger: '.left',
                 start: "top 50%",
-                end: "top 10%",
+                end: "top top",
                 toggleActions: "restart pause resume reset",
-                scrub: true,
+                scrub: 1,
                 // markers: true
             }
         });
@@ -53,35 +51,35 @@ function setAnimations() {
             scrollTrigger: {
                 trigger: ".right",
                 start: "top 50%",
-                end: "top 10%",
+                end: "top top",
                 toggleActions: "restart pause resume reset",
-                scrub: true,
+                scrub: 1,
                 // markers: true
             }
         }, "+=2");
     } else {
         gsap.to(".left", {
             opacity: 0,
-            duration: 3,
+            duration: 5,
             scrollTrigger: {
                 trigger: '.left',
                 start: "top 50%",
                 end: "top 20%",
                 toggleActions: "restart pause resume reset",
-                scrub: true,
+                scrub: 1,
                 // markers: true
             }
         });
 
         gsap.to(".right", {
             opacity: 0,
-            duration: 3,
+            duration: 5,
             scrollTrigger: {
                 trigger: ".right",
                 start: "top 50%",
                 end: "top 20%",
                 toggleActions: "restart pause resume reset",
-                scrub: true,
+                scrub: 1,
                 // markers: true
             }
         }, "+=2");
@@ -92,15 +90,13 @@ setAnimations();
 
 window.addEventListener('resize', setAnimations);
 
-
-
 const antheaTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".right",
-        start: "top 10%",
-        end: "top 0%",
+        start: "top 40%",
+        end: "top 10%",
         toggleActions: "play none none none",
-        scrub: true,
+        scrub: 1,
         // markers: true
     }
 });
@@ -125,12 +121,12 @@ gsap.fromTo(".cards-container",
         scrollTrigger: {
             trigger: ".anthea",
             start: "top 50%",
-            end: "top 30%",
+            end: "top 20%",
             toggleActions: "play none none none",
-            scrub: true,
+            scrub: 1,
             // markers: true 
         }
-    }, "-=1.5 "
+    }
 );
 
 antheaTimeline
@@ -146,7 +142,7 @@ gsap.fromTo(".card",
         opacity: 1,
         y: 0,
         duration: 1,
-        stagger: 0.3,
+        stagger: 0.5,
         scrollTrigger: {
             trigger: ".cards-container",
             start: "top 150%",
@@ -160,10 +156,10 @@ gsap.fromTo(".card",
 const mobileTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".cards-container",
-        start: "top 40%",
-        end: "top 10%",
+        start: "top 80%",
+        end: "top 40%",
         toggleActions: "play none none none",
-        scrub: true,
+        scrub: 1,
         // markers: true
     }
 });
@@ -172,8 +168,8 @@ mobileTimeline
     .set(".mobile-svg", { opacity: 0, scale: 0 })
     .to(".mobile-svg", {
         opacity: 1,
-        scale: 1.0,
-        duration: 0.1,
+        scale: 0.9,
+        duration: 5,
         ease: "power2.out"
     });
 
@@ -184,7 +180,27 @@ mobileTimeline
         scale: 1.0,
         duration: 0.1,
         ease: "power2.out"
-    });
+    }, "+=1");
+
+if (window.innerWidth > 768) {
+    mobileTimeline.set(".left-thumb", { opacity: 0, scale: 0 })
+        .to(".left-thumb", {
+            opacity: 1,
+            scale: 1.0,
+            duration: 0.1,
+            ease: "power2.out"
+        }, "+=1");
+
+    mobileTimeline
+        .set(".right-thumb", { opacity: 0, scale: 0 })
+        .to(".right-thumb", {
+            opacity: 1,
+            scale: 1.0,
+            duration: 0.1,
+            ease: "power2.out"
+        }, "+=1");
+
+}
 
 function getResponsiveValues() {
     if (window.matchMedia("(max-width: 425px)").matches) {
@@ -192,11 +208,11 @@ function getResponsiveValues() {
             width: "36vw",
             height: "10vh",
             card1: { x: "74%", y: "90%" },
-            card2: { x: "34%", y: "-1%" },
-            card3: { x: "100%", y: "-107%" },
-            card4: { x: "-35%", y: "-29%" },
-            card5: { x: "-47%", y: "-46%" },
-            card6: { x: "-3%", y: "-53%" }
+            card2: { x: "34%", y: "-13%" },
+            card3: { x: "102%", y: "-126%" },
+            card4: { x: "-37%", y: "-33%" },
+            card5: { x: "-50%", y: "-55%" },
+            card6: { x: "-5%", y: "-70%" }
         };
     } else if (window.matchMedia("(max-width: 768px)").matches) {
         return {
@@ -252,10 +268,10 @@ const responsiveValues = getResponsiveValues();
 const finalCardTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".cards-container",
-        start: "top 10%",
+        start: "top 20%",
         end: "top 0%",
         scrub: true,
-        // markers: true
+        markers: true
     }
 });
 
