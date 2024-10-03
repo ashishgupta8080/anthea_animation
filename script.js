@@ -180,7 +180,7 @@ mobileTimeline
         scale: 1.0,
         duration: 0.1,
         ease: "power2.out"
-    }, "+=1");
+    });
 
 if (window.innerWidth > 768) {
     mobileTimeline.set(".left-thumb", { opacity: 0, scale: 0 })
@@ -189,7 +189,7 @@ if (window.innerWidth > 768) {
             scale: 1.0,
             duration: 0.1,
             ease: "power2.out"
-        }, "+=1");
+        });
 
     mobileTimeline
         .set(".right-thumb", { opacity: 0, scale: 0 })
@@ -198,7 +198,7 @@ if (window.innerWidth > 768) {
             scale: 1.0,
             duration: 0.1,
             ease: "power2.out"
-        }, "+=1");
+        });
 
 }
 
@@ -271,7 +271,7 @@ const finalCardTimeline = gsap.timeline({
         start: "top 20%",
         end: "top 0%",
         scrub: true,
-        markers: true
+        // markers: true
     }
 });
 
